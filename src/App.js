@@ -19,7 +19,7 @@ const App = () => {
     dispatch(addNumber(number));
   };
 
-  const onClickReduceNumberHandler = () => {
+  const onClickMinusNumberHandler = () => {
     dispatch(minusNumber(number));
   };
   console.log(number);
@@ -29,7 +29,7 @@ const App = () => {
       {globalNumber}
       <input type="number" onChange={onChangeHandler} />
       <button onClick={onClickAddNumberHandler}>더하기</button>
-      <button onClick={onClickReduceNumberHandler}>빼기</button>
+      <button onClick={onClickMinusNumberHandler}>빼기</button>
     </div>
   );
 };
