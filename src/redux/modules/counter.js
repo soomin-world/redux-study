@@ -1,4 +1,5 @@
 const ADD_NUMBER = "ADD_NUMBER";
+const MINUS_NUMBER = "MINUS_NUMBER";
 
 export const addNumber = (payload) => {
   return {
@@ -7,6 +8,12 @@ export const addNumber = (payload) => {
   };
 };
 
+export const minusNumber = (payload) => {
+  return {
+    type: MINUS_NUMBER,
+    payload,
+  };
+};
 const initialState = {
   number: 0,
 };
@@ -15,6 +22,11 @@ const counter = (state = initialState, action) => {
     case ADD_NUMBER: {
       return {
         number: state.number + action.payload,
+      };
+    }
+    case MINUS_NUMBER: {
+      return {
+        number: state.number - action.payload,
       };
     }
     default:

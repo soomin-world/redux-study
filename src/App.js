@@ -4,6 +4,7 @@ import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addNumber } from "./redux/modules/counter";
+import { minusNumber } from "./redux/modules/counter";
 
 const App = () => {
   const [number, setNumber] = useState(0);
@@ -11,11 +12,15 @@ const App = () => {
   const dispatch = useDispatch();
 
   const onChangeHandler = (event) => {
-    const { value } = event.targt;
+    const { value } = event.target;
     setNumber(+value);
   };
   const onClickAddNumberHandler = () => {
     dispatch(addNumber(number));
+  };
+
+  const onClickReduceNumberHandler = () => {
+    dispatch(minusNumber(number));
   };
   console.log(number);
 
@@ -24,7 +29,7 @@ const App = () => {
       {globalNumber}
       <input type="number" onChange={onChangeHandler} />
       <button onClick={onClickAddNumberHandler}>더하기</button>
-      <button>빼기</button>
+      <button onClick={onClickReduceNumberHandler}>빼기</button>
     </div>
   );
 };
